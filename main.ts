@@ -15,7 +15,7 @@ namespace AirQuality {
 
     const PM_ADDR = 0x50;
 
-    //% block="read %pmType particulate matter concentration in the environment(μg/m3)"
+    //% block="Get %pmType (ug/m3) at I2C"
     //% weight=96
     export function PMdata(pmType: PmMenu): number {
         pins.i2cWriteNumber(PM_ADDR, 0x00, NumberFormat.Int8LE);
