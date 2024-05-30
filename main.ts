@@ -26,11 +26,10 @@ namespace AirQuality {
         }
         let data = [-1, -1, -1]
         if (sum == ((buffer[30] << 8) | buffer[31])) {
-            data[0] = (buffer[0x04] << 8) | buffer[0x05]
-            data[1] = (buffer[0x06] << 8) | buffer[0x07]
-            data[2] = (buffer[0x08] << 8) | buffer[0x09]
+          data[0] = Math.round(((buffer[0x04] << 8) | buffer[0x05]) / 2.002 )
+          data[1] = Math.round(((buffer[0x06] << 8) | buffer[0x07]) / 2.093 )
+          data[2] = Math.round(((buffer[0x08] << 8) | buffer[0x09]) / 1.841 )
         }
         return data[pmType]
     }
 }
-
